@@ -1,26 +1,22 @@
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 int main()
 {
-	float firstNumber;
-	float secondNumber;
-
+	vector<string> custOrder;
+	string custInput;
 
 	// Prompt user to enter the first number. 
-	cout << "Enter the first number" << endl;
-	cin >> firstNumber;
-	cout << "does it works?" << endl;
-
-	// Prompt user to enter the second number. 
-	cout << "Enter the second number" << endl;
-	cout << "Then hit enter" << endl;
-	cin >> secondNumber;
-
-	// Echo print the input.
-	cout << endl << "You input the numbers as " << firstNumber
-		 << " and " << secondNumber << endl;
-
-
+	cout << "Hello1, How may I help you?" << endl;
+	cin >> custInput;
+	while (custInput != "That's it") {
+		custOrder.push_back(custInput);
+	}
+	cout << "I have your order of: ";
+	for (int i = 0; i < custOrder.size(); ++i){
+		cout << custOrder[i] + ", ";
+	}
 	return 0;
 }
