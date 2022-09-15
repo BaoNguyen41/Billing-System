@@ -1,12 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
+#include "orderTracker.h"
 using namespace std;
 
 void helloWorld();
 int main()
 {   
-	string custInput;
+	Tracker customer1;
+	string burgerList;
+	string Btemp;
+	string friesList;
+	string Ftemp;
 	int count = 0;
 	/*string menu[4] = {"Burger", "Fries", "Drink"};*/
 	string burger[4] = {"Hamburger", "Chese Burger", "BBQ Burger", "Special Burger"};
@@ -17,7 +23,7 @@ int main()
 	
 
 	// Prompt user to enter the first number. 
-	cout << "Hello1, How may I help you?" << endl;
+	cout << "Hello!, How may I help you?" << endl;
 	for (int i = 0; i < 4; ++i){
 		if (i < 3){
 			cout << burger[i] + ", ";
@@ -25,13 +31,22 @@ int main()
 			cout << burger[i] + "?" << endl;
 		}
 	}
-	getline (cin, custInput);
-	while (custInput != "That's it") {
-		cout << count << " " << custInput << endl;
-		custOrder.push_back(custInput);
-		getline (cin, custInput);
-		count++;
+	cout << "What would you like to eat?" << endl;
+	getline (cin, burgerList);
+	istringstream iss(burgerList);
+
+	while (iss >> Btemp) {
+		custOrder.push_back(Btemp);
 	}
+
+	cout << "What fries would you like to eat?" << endl;
+	getline (cin, friesList);
+	istringstream is(friesList);
+
+	while (iss >> Ftemp) {
+		custOrder.push_back(Ftemp);
+	}
+
 	cout << "I have your order of: ";
 	for (int i = 0; i < custOrder.size(); ++i){
 		cout << custOrder[i] + ", ";
